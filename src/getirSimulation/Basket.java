@@ -19,6 +19,10 @@ public class Basket {
         this.productList.add(product);
     }
 
+    public void basket(){
+
+    }
+
     public double getTotalPrice() {
         return totalPrice;
     }
