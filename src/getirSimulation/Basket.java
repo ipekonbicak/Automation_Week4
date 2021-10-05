@@ -7,20 +7,20 @@ public class Basket {
     public String orderId;
     public double totalPrice;
     public String clientId;
-    public Product product;
-    public String productName;
     public List<Product> productList = new ArrayList<>();
 
-    public Basket(double totalPrice, String clientId, String productName, Product product) {
+    public Basket(double totalPrice, String clientId) {
         this.orderId = UUID.randomUUID().toString();
-        this.totalPrice = totalPrice;
         this.clientId = clientId;
-        this.productName = productName;
-        this.productList.add(product);
+        this.totalPrice = totalPrice;
     }
 
-    public void basket(){
-
+    public void basket(int number, Product product, Client client){
+        int toltalPrice;
+        product.discountedPrice= product.getDiscountedPrice() * number;
+        this.productList.add(product);
+        Basket basket = new Basket(product.discountedPrice, client.userId);
+        client.setBasket(basket);
     }
 
     public double getTotalPrice() {
@@ -39,19 +39,4 @@ public class Basket {
         this.clientId = clientId;
     }
 
-    public Product getProduct() {
-        return product;
-    }
-
-    public void setProduct(Product product) {
-        this.product = product;
-    }
-
-    public String getProductName() {
-        return productName;
-    }
-
-    public void setProductName(String productName) {
-        this.productName = productName;
-    }
 }

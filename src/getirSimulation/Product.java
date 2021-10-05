@@ -39,15 +39,8 @@ public class Product {
         product = new Product("Milka", 5.0, "Atıştırmalıklar", "Çikolata", "açıklama");
         productList.add(product);
     }
-     /* public void registersProducts(Product p){
-        Category category = new Category("");
-        SubCategory subCategory = new SubCategory("","");
 
-        if(p.subCategory.equals("")){
-            category.productList.add(p);
-        }else{
-            subCategory.productList.add(p);
-        }
-
-     } */
+    public double getDiscountedPrice() {
+        return discountedPrice;
+    }
 }

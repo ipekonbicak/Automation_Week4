@@ -6,11 +6,10 @@ public class MainMenu {
     Category category = new Category("");
     SubCategory subCategory = new SubCategory("", "");
     Product product = new Product("", 0.0, "", "","");
-    Basket basket;
+    Basket basket = new Basket(0.0, "");
     Scanner scn = new Scanner(System.in);
     String choosen;
     int i = 0;
-    double price;
 
     public void mainMenu(Client client){
         System.out.println("\n **************** Product Categories ****************");
@@ -68,10 +67,12 @@ public class MainMenu {
             case "A":
                 break;
             case "P":
+                Product p = new Product("", 0.0, "", "","");;
                 System.out.println("Enter the name of the product you want to add.");
                 String productName = scanner.next();
                 for(int y = 0; y < product.productList.size(); y++){
                     if(productName.equals(product.productList.get(y).name)){
+                        p = product.productList.get(y);
                         System.out.println("Product Name: " +product.productList.get(y).name+ "\nPrice: " +product.productList.get(y).price+
                                 "\nDiscounted price: " +product.productList.get(y).discountedPrice+
                                 "\nDescription: " +product.productList.get(y).description);
@@ -80,7 +81,7 @@ public class MainMenu {
 
                 System.out.println("Please enter the quantity of the product you want to buy.");
                 int number = scanner.nextInt();
-
+                basket.basket(number, p, client);
                 break;
             case "C":
                 this.mainMenu(client);
