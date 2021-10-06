@@ -59,12 +59,13 @@ public class MainMenu {
         System.out.println("**** Menu *** \n" +
                 " Press 'C' to turn back to Categories \n" +
                 " Press 'S' to list SubCategories \n" +
-                " Press 'A' to search \n Press 'P' add product to Basket " +
-                "\n Press 'S' to show your Basket.");
+                " Press 'SP' to search \n Press 'P' add product to Basket " +
+                "\n Press 'SB' to show your Basket.");
         choosen = scn.next();
         Scanner scanner = new Scanner(System.in);
         switch (choosen){
-            case "A":
+            case "SB":
+                basket.seeBasket(client);
                 break;
             case "P":
                 Product p = new Product("", 0.0, "", "","");;

@@ -17,7 +17,7 @@ public class Product {
         this.productId =  UUID.randomUUID().toString();
         this.name = name;
         this.price = price;
-        this.discountedPrice = 0;
+        this.discountedPrice = 10;
         this.categoryName = categoryName;
         this.subCategory = subCategoryName;
         this.description = description;
