@@ -16,6 +16,14 @@ public class Basket {
         this.totalPrice = totalPrice;
     }
 
+    public double getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(double totalPrice) {
+        this.totalPrice = totalPrice;
+    }
+
     //adding product to a clients basket.
     public void addProduct(int number, Product product, Client client){
         MainMenu m = new MainMenu();
@@ -80,14 +88,6 @@ public class Basket {
             System.out.println("You don't have a Basket. Please add product to create.");
         }
         m.choose(client);
-    }
-
-    public double getTotalPrice() {
-        return totalPrice;
-    }
-
-    public void setTotalPrice(double totalPrice) {
-        this.totalPrice = totalPrice;
     }
 
 }

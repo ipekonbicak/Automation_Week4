@@ -36,12 +36,15 @@ public class Search {
             }
             System.out.println(isEqualChar[0]+ " --- " +isEqualChar[1]+ " --- " +isEqualChar[2]);
             isEqualString = str.valueOf(isEqualChar);
+
+            //3 characters taken from user.
             while(i < 3){
                 ch[i] = scn.next().charAt(0);
                 i++;
             }
+
+            //The characters given from user are turn to string.
             string = str.valueOf(ch);
-            System.out.println(" ++++++++++++ " +string.toString());
             if(string.equals(isEqualString)){
                 System.out.println("Product Found. If you want to add the product to the your basket press 'Y' ");
                 System.out.println("Product Name: " + product.name + "\nProduct Price: " +product.price+ "\nProduct discounted price " +product.getBasketPrice()+

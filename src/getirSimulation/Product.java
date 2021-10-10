@@ -28,22 +28,6 @@ public class Product {
 
     }
 
-    public void createCategoryByDefault(){
-
-        //burada Id tutulması gerekiyor.
-        Product product = new Product("Elma", 5.0,"Meyve", "-", "açıklama");
-        productList.add(product);
-        //this.registersProducts(product);
-        product = new Product("Armut", 8.34, "Meyve", "-", "açıklama");
-        productList.add(product);
-        product = new Product("Doritos", 10.2, "Atıştırmalıklar", "Cips", "açıklama");
-        productList.add(product);
-        product = new Product("Pringles", 16.0, "Atıştırmalıklar", "Cips", "açıklama");
-        productList.add(product);
-        product = new Product("Milka", 5.0, "Atıştırmalıklar", "Çikolata", "açıklama");
-        productList.add(product);
-    }
-
     public double getDiscountedPrice() {
         return discountedPrice;
     }
@@ -63,4 +47,21 @@ public class Product {
     public void setAmount(int amount) {
         this.amount = amount;
     }
+
+    public void createCategoryByDefault(){
+
+        //burada Id tutulması gerekiyor.
+        Product product = new Product("Elma", 5.0,"Meyve", "-", "açıklama");
+        productList.add(product);
+        //this.registersProducts(product);
+        product = new Product("Armut", 8.34, "Meyve", "-", "açıklama");
+        productList.add(product);
+        product = new Product("Doritos", 10.2, "Atıştırmalıklar", "Cips", "açıklama");
+        productList.add(product);
+        product = new Product("Pringles", 16.0, "Atıştırmalıklar", "Cips", "açıklama");
+        productList.add(product);
+        product = new Product("Milka", 5.0, "Atıştırmalıklar", "Çikolata", "açıklama");
+        productList.add(product);
+    }
+
 }
