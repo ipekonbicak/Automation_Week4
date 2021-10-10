@@ -30,15 +30,19 @@ public class Basket {
             basket.productList.add(product);
             client.basket.productList.get(0).setBasketPrice(amount);
             client.basket.productList.get(0).setAmount(number);
+
         //If user has a basket already add new product to that basket or update existing product price.
         }else{
             for (Product p: client.basket.productList) {
                 client.basket.setTotalPrice( client.basket.getTotalPrice() + amount);
+                //If the added product already exist in the basket, the necessary information of the product is updated in the following if block.
                 if(product.name == p.name){
                     amount = p.getBasketPrice() + amount;
                     p.setAmount(number + p.getAmount());
                     p.setBasketPrice(amount);
                     break;
+
+               //If a second product is added to the cart, it is added in the else block below.
                 }else{
                     p.setBasketPrice(amount);
                     client.basket.productList.add(product);

@@ -17,7 +17,9 @@ public class LandingPage {
                 menu.mainMenu(client);
                 break;
             case "Search":
-                System.out.println("Search tıklandı");
+                System.out.println("Search clicked.");
+                Search search =  new Search();
+                search.seacrhProduct(client);
                 break;
             case "Profile":
                 System.out.println("Profile tıklandı");
