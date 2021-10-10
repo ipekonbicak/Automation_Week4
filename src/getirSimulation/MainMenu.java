@@ -3,23 +3,32 @@ import java.util.Scanner;
 
 public class MainMenu {
 
-    Category category = new Category("");
-    SubCategory subCategory = new SubCategory("", "");
-    Product product = new Product("", 0.0, "", "","");
-    Basket basket = new Basket(0.0, "");
+    Category category;
+    SubCategory subCategory;
+    Product product;
+    Basket basket;
     Scanner scn = new Scanner(System.in);
     String choosen;
     int i = 0;
 
-    public void mainMenu(Client client){
-        System.out.println("\n **************** Product Categories ****************");
+    public MainMenu() {
+        category = new Category("");
+        subCategory = new SubCategory("", "");
+        product = new Product("", 0.0, "", "","");
+        basket = new Basket(0.0, "");
 
-                /*Since the system is not connected to a Database, I created products that are created and
+         /*Since the system is not connected to a Database, I created products that are created and
                 kept registered within the program run time so that I can see the program is running.
                  */
         category.createCategoryByDefault();
         subCategory.cretaeSubCategoryByDefault();
         product.createCategoryByDefault();
+    }
+
+    public void mainMenu(Client client){
+        System.out.println("\n **************** Product Categories ****************");
+
+
 
                 /* To get the category names, I pulled the category names from the category
                 list I created in the category class.
@@ -56,6 +65,7 @@ public class MainMenu {
 
     //To add products to the Basket, view Categories again or Search.
     public void choose(Client client){
+        System.out.println("\n");
         System.out.println("**** Menu *** \n" +
                 " Press 'C' to turn back to Categories \n" +
                 " Press 'S' to list SubCategories \n" +
@@ -82,7 +92,7 @@ public class MainMenu {
 
                 System.out.println("Please enter the quantity of the product you want to buy.");
                 int number = scanner.nextInt();
-                basket.basket(number, p, client);
+                basket.addProduct(number, p, client);
                 break;
             case "C":
                 this.mainMenu(client);

@@ -96,4 +96,7 @@ public class Client extends User implements UserOperations {
         this.clientList.add(client);
     }
 
+    public void showProfile(Client client){
+
+    }
 }

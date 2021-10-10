@@ -11,6 +11,8 @@ public class Product {
     public String categoryName;
     public String subCategory;
     public String description;
+    public double basketPrice;
+    public int amount;
     public List<Product> productList = new ArrayList<>();
 
     public Product(String name, Double price, String categoryName, String subCategoryName, String description) {
@@ -21,6 +23,8 @@ public class Product {
         this.categoryName = categoryName;
         this.subCategory = subCategoryName;
         this.description = description;
+        this.basketPrice = discountedPrice;
+        this.amount = 0;
 
     }
 
@@ -42,5 +46,21 @@ public class Product {
 
     public double getDiscountedPrice() {
         return discountedPrice;
+    }
+
+    public double getBasketPrice() {
+        return basketPrice;
+    }
+
+    public void setBasketPrice(double basketPrice) {
+        this.basketPrice = basketPrice;
+    }
+
+    public int getAmount() {
+        return amount;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
     }
 }

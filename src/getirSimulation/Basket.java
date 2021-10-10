@@ -9,6 +9,7 @@ public class Basket {
     public String clientId;
     public List<Product> productList = new ArrayList<>();
 
+    //create basket for the first time for an user.
     public Basket(double totalPrice, String clientId) {
         this.orderId = UUID.randomUUID().toString();
         this.clientId = clientId;
@@ -16,37 +17,44 @@ public class Basket {
     }
 
     //adding product to a clients basket.
-    public void basket(int number, Product product, Client client){
+    public void addProduct(int number, Product product, Client client){
         MainMenu m = new MainMenu();
-        double amount;
         int i = 0;
+        //amount is a total price of added product amount.
+        double amount = (product.discountedPrice * number), variable = 0;
+
         //If client did not have a basket, create basket for relevant client.
         if(client.basket == null){
-            System.out.println("\n\n amount = product.getDiscountedPrice() * number \n\n" +product.getDiscountedPrice());
-            amount = product.getDiscountedPrice() * number;
             Basket basket = new Basket(amount, client.userId);
-            basket.productList.add(product);
             client.setBasket(basket);
-        //If user has a basket already add new product to that basket or update existing product.
+            basket.productList.add(product);
+            client.basket.productList.get(0).setBasketPrice(amount);
+            client.basket.productList.get(0).setAmount(number);
+        //If user has a basket already add new product to that basket or update existing product price.
         }else{
-            client.basket.setTotalPrice(client.basket.getTotalPrice() + (product.getDiscountedPrice() * number));
-
             for (Product p: client.basket.productList) {
-                if(p.productId == product.productId){
-                    amount = p.discountedPrice;
-                    client.basket.productList.remove(i);
-                    product.discountedPrice = amount * number;
+                client.basket.setTotalPrice( client.basket.getTotalPrice() + amount);
+                if(product.name == p.name){
+                    amount = p.getBasketPrice() + amount;
+                    p.setAmount(number + p.getAmount());
+                    p.setBasketPrice(amount);
+                    break;
+                }else{
+                    p.setBasketPrice(amount);
                     client.basket.productList.add(product);
                     break;
                 }
-                i++;
+
             }
+
         }
+
         for (Product p: client.basket.productList) {
-            System.out.println("akjdalsjdkajsdkajskdljaklsjdkalsjdklajsdklajsdkljaklsdjkalsjdklajsd");
             //The total product price is divided by the unit product price and the number of products added to the cart is found.
-            System.out.println("Product Name: " + p.name +
-                    " Total price for this product: " +p.discountedPrice);
+            if(product.name == p.name){
+                System.out.println("Product Name: " + product.name + "\nProduct Price: " +product.price+ "\nProduct discounted price " +product.discountedPrice+
+                        "\nTotal price for this product: " +product.basketPrice);
+            }
         }
         m.choose(client);
     }
@@ -54,22 +62,15 @@ public class Basket {
     //show client's basket
     public void seeBasket(Client client){
         MainMenu m = new MainMenu();
-        int totalPrice;
-        int division = 1;
-        Product product = new Product("", 0.0,"","","");
+        int productCount = 1;
+
         //Basket information is shown to the user.
         if(client.basket != null){
-            System.out.println("PRODUCTS:");
+            System.out.println("::::::: PRODUCTS :::::::");
             for (Product p: client.basket.productList) {
-                System.out.println("akjdalsjdkajsdkajskdljaklsjdkalsjdklajsdklajsdkljaklsdjkalsjdklajsd");
                 //The total product price is divided by the unit product price and the number of products added to the cart is found.
-                for (Product p2: product.productList) {
-                    if(p2.productId == p.productId){
-                        division = (int)(p2.discountedPrice / p.discountedPrice);
-                    }
-                }
-                System.out.println("Product Name: " + p.name + "Product Count" + division+
-                        " Total price for this product: " +p.discountedPrice);
+                System.out.println("Product Name: " + p.name + " Product Count " + p.amount +
+                        " Total price for this product: " +p.basketPrice);
             }
             System.out.println("Total Basket Price: " + client.basket.totalPrice);
         }else{
