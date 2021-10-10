@@ -49,19 +49,58 @@ public class Product {
     }
 
     public void createCategoryByDefault(){
-
+        Product product;
         //burada Id tutulması gerekiyor.
-        Product product = new Product("Elma", 5.0,"Meyve", "-", "açıklama");
+        product = new Product("Elma", 5.0,"Meyve", "-", "açıklama");
         productList.add(product);
         //this.registersProducts(product);
         product = new Product("Armut", 8.34, "Meyve", "-", "açıklama");
         productList.add(product);
-        product = new Product("Doritos", 10.2, "Atıştırmalıklar", "Cips", "açıklama");
+        product = new Product("Üzüm", 8.34, "Meyve", "-", "açıklama");
         productList.add(product);
-        product = new Product("Pringles", 16.0, "Atıştırmalıklar", "Cips", "açıklama");
+
+        product = new Product("Domates", 5.0,"Sebze", "-", "açıklama");
         productList.add(product);
-        product = new Product("Milka", 5.0, "Atıştırmalıklar", "Çikolata", "açıklama");
+        //this.registersProducts(product);
+        product = new Product("Biber", 8.34, "Sebze", "-", "açıklama");
         productList.add(product);
+        product = new Product("Patlıcan", 8.34, "Sebze", "-", "açıklama");
+        productList.add(product);
+
+        product = new Product("Lays", 10.2, "Atıştırmalıklar", "Cips", "açıklama");
+        productList.add(product);
+        product = new Product("Doritos", 16.0, "Atıştırmalıklar", "Cips", "açıklama");
+        productList.add(product);
+        product = new Product("Ruffles", 5.0, "Atıştırmalıklar", "Cips", "açıklama");
+        productList.add(product);
+
+        product = new Product("Tadelle", 10.2, "Atıştırmalıklar", "Çikolata", "açıklama");
+        productList.add(product);
+        product = new Product("Albeni", 16.0, "Atıştırmalıklar", "Çikolata", "açıklama");
+        productList.add(product);
+        product = new Product("Metro", 5.0, "Atıştırmalıklar", "Çikolata", "açıklama");
+        productList.add(product);
+        product = new Product("Hobby", 5.0, "Atıştırmalıklar", "Çikolata", "açıklama");
+        productList.add(product);
+
+        product = new Product("Tam Yağlı", 5.0, "Kahvaltılık", "Süt", "açıklama");
+        productList.add(product);
+        product = new Product("Az Yağlı", 5.0, "Kahvaltılık", "Süt", "açıklama");
+        productList.add(product);
+        product = new Product("Laktozsuz", 5.0, "Kahvaltılık", "Süt", "açıklama");
+        productList.add(product);
+
+        product = new Product("Kaşar", 5.0, "Kahvaltılık", "Şarküteri", "açıklama");
+        productList.add(product);
+        product = new Product("Peynir", 5.0, "Kahvaltılık", "Şarküteri", "açıklama");
+        productList.add(product);
+        product = new Product("Salam", 5.0, "Kahvaltılık", "Şarküteri", "açıklama");
+        productList.add(product);
+        product = new Product("Sucuk", 5.0, "Kahvaltılık", "Şarküteri", "açıklama");
+        productList.add(product);
+        product = new Product("Zeytin", 5.0, "Kahvaltılık", "Şarküteri", "açıklama");
+        productList.add(product);
+
     }
 
 }

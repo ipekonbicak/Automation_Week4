@@ -13,19 +13,20 @@ public class SubCategory extends Category {
     }
 
     public void cretaeSubCategoryByDefault(){
-        SubCategory subCategory = new SubCategory("Cips", "Atıştırmalıklar");
+        SubCategory subCategory;
+
+        subCategory = new SubCategory("Meyve", "Meyve & Sebze");
         this.subCategoryList.add(subCategory);
-        addSubCategoryToCategory(subCategory);
-        subCategory = new SubCategory("Çikolata", "Atıştırmalıklar");
+        subCategory = new SubCategory("Sebze", "Meyve & Sebze");
+        this.subCategoryList.add(subCategory);
+        subCategory = new SubCategory("Cips", "Atıştırmalık");
+        this.subCategoryList.add(subCategory);
+        subCategory = new SubCategory("Çikolata", "Atıştırmalık");
+        this.subCategoryList.add(subCategory);
+        subCategory = new SubCategory("Süt", "Kahvaltılık");
+        this.subCategoryList.add(subCategory);
+        subCategory = new SubCategory("Şarküteri", "Kahvaltılık");
         this.subCategoryList.add(subCategory);
     }
 
-    public void addSubCategoryToCategory(SubCategory subCategory){
-        Category category = new Category("");
-        for(int i = 0; i < category.categoryList.size(); i++){
-            if(this.categoryList.get(i).name.equals(subCategory.categoryName)){
-                category.subCategoryList.add(subCategory);
-            }
-        }
-    }
 }

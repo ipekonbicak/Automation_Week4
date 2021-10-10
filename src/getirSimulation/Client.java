@@ -86,13 +86,17 @@ public class Client extends User implements UserOperations {
 
     //This function has nothing to do with homework, I just added it to get some users in the system.
     public void clients(){
-        Client client = new Client("İpek", "Önbıçak", "123", "ipek@getir.com","Narlıdere","05514275597");
+        Client client = new Client("Ahmet", "ahmet", "1234", "getir.com","İstanbul /Avcılar","05552909999");
         this.clientList.add(client);
-        client = new Client("a", "b","1234","a@getir.com","Narlıdere","05514275597");
+        client = new Client("Mehmet", "mehmet","1234+","getir.com","Kocaeli / Gebze","05552909998");
         this.clientList.add(client);
-        client = new Client("seyhan", "önbıçak", "şifre", "seyhan@getir.com","Narlıdere","05514275597");
+        client = new Client("Ayşe", "ayşe", "12345", "getir.com","Konya /Selçuklu","02121682898");
         this.clientList.add(client);
         client = new Client("a", "a","a","a","Narlıdere","05514275597");
+        this.clientList.add(client);
+        client = new Client("Fatma", "fatma", "A12345+", "getir.com","Ordu / Ünye","01111111111");
+        this.clientList.add(client);
+        client = new Client("Hayriye", "hayriye", "1234", "getir.com","Samsun /Çarşamba","09999999999");
         this.clientList.add(client);
     }
 

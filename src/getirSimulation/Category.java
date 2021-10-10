@@ -6,19 +6,18 @@ import java.util.UUID;
 public class Category {
     public String categoryId;
     public String name;
-    public List<Category> categoryList = new ArrayList<Category>();
-    public List<Product> productList = new ArrayList<Product>();
-    public List<SubCategory> subCategoryList = new ArrayList<SubCategory>();
-
+    public List<Category> categoryList = new ArrayList<>();
+    String[] categoryNameArray = {"Meyve & Sebze","Atıştırmalık","Kahvaltılık"};
     public Category(String name) {
         this.categoryId = UUID.randomUUID().toString();
         this.name = name;
     }
 
     public void createCategoryByDefault(){
-        Category category =  new Category("Atıştırmalıklar");
-        this.categoryList.add(category);
-        category = new Category("Meyve");
-        this.categoryList.add(category);
+        Category category;
+        for(int i = 0; i <= categoryNameArray.length; i++){
+            category =  new Category(categoryNameArray[i]);
+            this.categoryList.add(category);
+        }
     }
 }
