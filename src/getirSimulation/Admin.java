@@ -6,8 +6,8 @@ public class Admin extends User implements UserOperations {
     public List<Admin> adminList;
     public int userType;
 
-    public Admin(String name, String surname, String password, String email) {
-        super(name, surname, password, email);
+    public Admin(String name, String surname, String password, String email, String address, String phoneNumber) {
+        super(name, surname, password, email, address, phoneNumber);
         this.userType = 1;
     }
 
@@ -40,6 +40,6 @@ public class Admin extends User implements UserOperations {
 
     @Override
     public void register() {
-        Admin admin = new Admin("admin", "admin", "1234", "admin@admin.com");
+        Admin admin = new Admin("admin", "admin", "1234", "admin@admin.com","admin address", "05514275597");
     }
 }

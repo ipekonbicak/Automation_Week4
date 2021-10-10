@@ -5,13 +5,13 @@ import java.util.Scanner;
 
 public class Client extends User implements UserOperations {
     private int clientSegment;
-    public List<Card> cards = new ArrayList<Card>() ;
-    public List<Client> clientList = new ArrayList<Client>();
+    public List<Card> cards = new ArrayList<>() ;
+    public List<Client> clientList = new ArrayList<>();
     public Basket basket;
     public int userType;
 
-    public Client(String name, String surname, String password, String email) {
-        super(name, surname, password, email);
+    public Client(String name, String surname, String password, String email, String address, String phoneNumber) {
+        super(name, surname, password, email, address, phoneNumber);
         this.clientSegment = 0;
         this.userType = 2;
     }
@@ -70,7 +70,7 @@ public class Client extends User implements UserOperations {
                 System.out.println("This email already exist.");
                 break;
             }else {
-                client = new Client(name, surname, password, email);
+                client = new Client(name, surname, password, email,phoneNumber, address);
                 this.clientList.add(client);
             }
         }
@@ -86,17 +86,33 @@ public class Client extends User implements UserOperations {
 
     //This function has nothing to do with homework, I just added it to get some users in the system.
     public void clients(){
-        Client client = new Client("İpek", "Önbıçak", "123", "ipek@getir.com");
+        Client client = new Client("İpek", "Önbıçak", "123", "ipek@getir.com","Narlıdere","05514275597");
         this.clientList.add(client);
-        client = new Client("a", "b","1234","a@getir.com");
+        client = new Client("a", "b","1234","a@getir.com","Narlıdere","05514275597");
         this.clientList.add(client);
-        client = new Client("seyhan", "önbıçak", "şifre", "seyhan@getir.com");
+        client = new Client("seyhan", "önbıçak", "şifre", "seyhan@getir.com","Narlıdere","05514275597");
         this.clientList.add(client);
-        client = new Client("a", "a","a","a");
+        client = new Client("a", "a","a","a","Narlıdere","05514275597");
         this.clientList.add(client);
     }
 
     public void showProfile(Client client){
+        Scanner scn = new Scanner(System.in);
+        String s;
+        System.out.println("::::::::::::: Profile :::::::::::::");
+        System.out.println("Name: " +client.name+ "\nSurname: " +client.surname+ "\nAddress: " +client.address+ "\nPhone Number: " +client.phoneNumber);
 
+        System.out.println("\nPress 'Landing Page' to landing page.\nPress 'Change Profile' to change profile.");
+        s = scn.nextLine();
+
+        if(s.equals("Landing Page")){
+            LandingPage landingPage= new LandingPage();
+            landingPage.landingPage(client);
+        }else if(s.equals("Change Profile")){
+            this.login();
+        }else{
+            System.out.println("aklşdkalskdlaskd aşlkdalşs şalksdşa aşlsdklaşsdasd şalksdaşlskdlaskd");
+            System.exit(0);
+        }
     }
 }

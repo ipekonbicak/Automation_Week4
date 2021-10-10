@@ -9,7 +9,7 @@ public class Main {
 
         Scanner scn = new Scanner(System.in);
         String choise;
-        Client client = new Client("try", "try", "try", "try");
+        Client client = new Client("try", "try", "try", "try", "try", "try");
         choise = scn.next();
 
         try{

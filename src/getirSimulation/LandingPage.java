@@ -22,7 +22,7 @@ public class LandingPage {
                 search.seacrhProduct(client);
                 break;
             case "Profile":
-                System.out.println("Profile tıklandı");
+                client.showProfile(client);
                 break;
             default:
                 System.out.println("Something went wrong, please try again.");
