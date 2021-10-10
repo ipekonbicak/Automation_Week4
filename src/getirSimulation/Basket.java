@@ -1,12 +1,16 @@
 package getirSimulation;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 import java.util.UUID;
 
 public class Basket {
     public String orderId;
     public double totalPrice;
     public String clientId;
+    public int KDV = 3;
+    public int deliveryFee = 2;
+    public int amountForDiscount = 100;
     public List<Product> productList = new ArrayList<>();
 
     //create basket for the first time for an user.

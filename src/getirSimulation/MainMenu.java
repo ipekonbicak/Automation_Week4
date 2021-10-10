@@ -70,7 +70,8 @@ public class MainMenu {
                 " Press 'C' to turn back to Categories \n" +
                 " Press 'S' to list SubCategories \n" +
                 " Press 'SP' to search \n Press 'P' add product to Basket " +
-                "\n Press 'SB' to show your Basket.");
+                "\n Press 'SB' to show your Basket." +
+                "\n Press 'L' to turn back to landing page");
         choosen = scn.next();
         Scanner scanner = new Scanner(System.in);
         switch (choosen){
@@ -100,7 +101,9 @@ public class MainMenu {
                 System.out.println("\nChoose Category for seeing SubCategory");
                 choosen  = scn.next();
                 this.listSubCategory(choosen,client);
-
+            case "L":
+                LandingPage landingPage = new LandingPage();
+                landingPage.landingPage(client);
             default:
                 break;
 

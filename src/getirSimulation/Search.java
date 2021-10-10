@@ -28,13 +28,12 @@ public class Search {
     }
 
     public void seacrhProduct(Client client){
-        System.out.println("Type something to search.");
+        System.out.println("Type something to search.\n(If you enter 3 characters and press enter, you will be able to search.)");
         for(int z = 0; z < product.productList.size(); z++){
             stringOfProduct = product.productList.get(z).name;
             for(int y = 1; y <= 3; y++){
                 isEqualChar[y-1] = java.util.Arrays.toString(stringOfProduct.split("(?<=\\G...)")).charAt(y);
             }
-            System.out.println(isEqualChar[0]+ " --- " +isEqualChar[1]+ " --- " +isEqualChar[2]);
             isEqualString = str.valueOf(isEqualChar);
 
             //3 characters taken from user.
@@ -47,10 +46,9 @@ public class Search {
             string = str.valueOf(ch);
             if(string.equals(isEqualString)){
                 System.out.println("Product Found. If you want to add the product to the your basket press 'Y' ");
-                System.out.println("Product Name: " + product.name + "\nProduct Price: " +product.price+ "\nProduct discounted price " +product.getBasketPrice()+
-                        "\nTotal price for this product: " +product.basketPrice);
+                System.out.println("Product Name: " + product.productList.get(z).name + "\nProduct Price: " +product.productList.get(z).price+ "\nProduct discounted price " +product.productList.get(z).getBasketPrice());
                 productName = scn.next();
-                if(productName.equals('Y')){
+                if(productName.equals("Y")){
                     System.out.println("Please write product amount.");
                     productAmount = scn.nextInt();
                     basket.addProduct(productAmount,product.productList.get(i),client);
