@@ -21,7 +21,7 @@ public class Basket {
         MainMenu m = new MainMenu();
         int i = 0;
         //amount is a total price of added product amount.
-        double amount = (product.discountedPrice * number), variable = 0;
+        double amount = (product.getDiscountedPrice() * number);
 
         //If client did not have a basket, create basket for relevant client.
         if(client.basket == null){
@@ -52,7 +52,7 @@ public class Basket {
         for (Product p: client.basket.productList) {
             //The total product price is divided by the unit product price and the number of products added to the cart is found.
             if(product.name == p.name){
-                System.out.println("Product Name: " + product.name + "\nProduct Price: " +product.price+ "\nProduct discounted price " +product.discountedPrice+
+                System.out.println("Product Name: " + product.name + "\nProduct Price: " +product.price+ "\nProduct discounted price " +product.getBasketPrice()+
                         "\nTotal price for this product: " +product.basketPrice);
             }
         }
@@ -62,8 +62,6 @@ public class Basket {
     //show client's basket
     public void seeBasket(Client client){
         MainMenu m = new MainMenu();
-        int productCount = 1;
-
         //Basket information is shown to the user.
         if(client.basket != null){
             System.out.println("::::::: PRODUCTS :::::::");
@@ -86,14 +84,6 @@ public class Basket {
 
     public void setTotalPrice(double totalPrice) {
         this.totalPrice = totalPrice;
-    }
-
-    public String getClientId() {
-        return clientId;
-    }
-
-    public void setClientId(String clientId) {
-        this.clientId = clientId;
     }
 
 }
