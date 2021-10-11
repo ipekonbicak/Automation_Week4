@@ -39,13 +39,15 @@ public class Client extends User implements UserOperations {
     @Override
     public void register() {
         Client client;
-        String name, surname, password, email;
+        String name, surname, password, email, address, number;
 
         //create scanners for getting informaiton from user.
         Scanner nameScn = new Scanner(System.in);
         Scanner surnameScn = new Scanner(System.in);
         Scanner passwordScn = new Scanner(System.in);
         Scanner emailScn = new Scanner(System.in);
+        Scanner addressScn = new Scanner(System.in);
+        Scanner numberScn = new Scanner(System.in);
 
         System.out.print("Please Enter your name: ");
         name = nameScn.next();
@@ -54,6 +56,10 @@ public class Client extends User implements UserOperations {
         System.out.print("Please Enter your password: ");
         password = passwordScn.next();
         System.out.print("Please Enter your Email: ");
+        address = addressScn.next();
+        System.out.print("Please Enter your Address: ");
+        number = numberScn.next();
+        System.out.print("Please Enter your number: ");
 
         //close scnnaer
         email = emailScn.next();
@@ -61,21 +67,22 @@ public class Client extends User implements UserOperations {
         surnameScn.close();
         passwordScn.close();
         emailScn.close();
+        addressScn.close();
+        nameScn.close();
 
         //create user and add it to the clientList.
         for (Client c: clientList) {
             if(c.email.equals(email)){
                 System.out.println("This email already exist.");
                 break;
-            }else {
-                client = new Client(name, surname, password, email,phoneNumber, address);
+            }else if(c.phoneNumber.equals(number)){
+                System.out.println("This phone number already exist.");
+                break;
+            } else {
+                client = new Client(name, surname, password, email,number, address);
                 this.clientList.add(client);
             }
         }
-    }
-
-    public Basket getBasket() {
-        return basket;
     }
 
     public void setBasket(Basket basket) {
