@@ -12,19 +12,23 @@ public class Product {
     public String subCategory;
     public String description;
     public double basketPrice;
+    public double KDVratio;
     public int amount;
+    public double amountWithKDV;
     public List<Product> productList = new ArrayList<>();
 
-    public Product(String name, Double price, String categoryName, String subCategoryName, String description) {
+    public Product(String name, Double price, Double discountedPrice, String categoryName, String subCategoryName, String description, double KDVratio) {
         this.productId =  UUID.randomUUID().toString();
         this.name = name;
         this.price = price;
-        this.discountedPrice = 10;
+        this.discountedPrice = discountedPrice;
         this.categoryName = categoryName;
         this.subCategory = subCategoryName;
         this.description = description;
         this.basketPrice = discountedPrice;
         this.amount = 0;
+        this.amountWithKDV = 0.0;
+        this.KDVratio = KDVratio;
 
     }
 
@@ -48,57 +52,70 @@ public class Product {
         this.amount = amount;
     }
 
+    public void setAmountWithKDV(double amountWithKDV) {
+        this.amountWithKDV = amountWithKDV;
+    }
+
+    public double getAmountWithKDV() {
+        return amountWithKDV;
+    }
+
+    public double getKDVratio() {
+        return KDVratio;
+    }
+
+    //creating product that are wanted.
     public void createCategoryByDefault(){
         Product product;
         //burada Id tutulması gerekiyor.
-        product = new Product("Elma", 5.0,"Meyve", "-", "açıklama");
+        product = new Product("Elma", 5.0,5.8, "Meyve", "-", "açıklama", 0.18);
         productList.add(product);
         //this.registersProducts(product);
-        product = new Product("Armut", 8.34, "Meyve", "-", "açıklama");
+        product = new Product("Armut", 8.34, 10.9, "Meyve", "-", "açıklama", 0.18);
         productList.add(product);
-        product = new Product("Üzüm", 8.34, "Meyve", "-", "açıklama");
+        product = new Product("Üzüm", 40.34, 3.0,"Meyve", "-", "açıklama", 0.18);
         productList.add(product);
 
-        product = new Product("Domates", 5.0,"Sebze", "-", "açıklama");
+        product = new Product("Domates", 8.0,20.5,"Sebze", "-", "açıklama", 0.1);
         productList.add(product);
         //this.registersProducts(product);
-        product = new Product("Biber", 8.34, "Sebze", "-", "açıklama");
+        product = new Product("Biber", 2.34, 10.0, "Sebze", "-", "açıklama", 0.1);
         productList.add(product);
-        product = new Product("Patlıcan", 8.34, "Sebze", "-", "açıklama");
-        productList.add(product);
-
-        product = new Product("Lays", 10.2, "Atıştırmalıklar", "Cips", "açıklama");
-        productList.add(product);
-        product = new Product("Doritos", 16.0, "Atıştırmalıklar", "Cips", "açıklama");
-        productList.add(product);
-        product = new Product("Ruffles", 5.0, "Atıştırmalıklar", "Cips", "açıklama");
+        product = new Product("Patlıcan", 18.54,11.1, "Sebze", "-", "açıklama", 0.1);
         productList.add(product);
 
-        product = new Product("Tadelle", 10.2, "Atıştırmalıklar", "Çikolata", "açıklama");
+        product = new Product("Lays", 10.2, 12.5,"Atıştırmalıklar", "Cips", "açıklama",0.3);
         productList.add(product);
-        product = new Product("Albeni", 16.0, "Atıştırmalıklar", "Çikolata", "açıklama");
+        product = new Product("Doritos", 16.0,27.0, "Atıştırmalıklar", "Cips", "açıklama",0.3);
         productList.add(product);
-        product = new Product("Metro", 5.0, "Atıştırmalıklar", "Çikolata", "açıklama");
-        productList.add(product);
-        product = new Product("Hobby", 5.0, "Atıştırmalıklar", "Çikolata", "açıklama");
+        product = new Product("Ruffles", 5.0, 20.0,"Atıştırmalıklar", "Cips", "açıklama", 0.3);
         productList.add(product);
 
-        product = new Product("Tam Yağlı", 5.0, "Kahvaltılık", "Süt", "açıklama");
+        product = new Product("Tadelle", 10.2, 23.4, "Atıştırmalıklar", "Çikolata", "açıklama", 0.3);
         productList.add(product);
-        product = new Product("Az Yağlı", 5.0, "Kahvaltılık", "Süt", "açıklama");
+        product = new Product("Albeni", 16.0, 21.0,"Atıştırmalıklar", "Çikolata", "açıklama", 0.3);
         productList.add(product);
-        product = new Product("Laktozsuz", 5.0, "Kahvaltılık", "Süt", "açıklama");
+        product = new Product("Metro", 15.0, 13.0,"Atıştırmalıklar", "Çikolata", "açıklama", 0.3);
+        productList.add(product);
+        product = new Product("Hobby", 15.0, 14.2, "Atıştırmalıklar", "Çikolata", "açıklama", 0.3);
         productList.add(product);
 
-        product = new Product("Kaşar", 5.0, "Kahvaltılık", "Şarküteri", "açıklama");
+        product = new Product("Tam Yağlı", 15.0, 5.7,"Kahvaltılık", "Süt", "açıklama", 0.18);
         productList.add(product);
-        product = new Product("Peynir", 5.0, "Kahvaltılık", "Şarküteri", "açıklama");
+        product = new Product("Az Yağlı", 15.0, 7.7,"Kahvaltılık", "Süt", "açıklama", 0.18);
         productList.add(product);
-        product = new Product("Salam", 5.0, "Kahvaltılık", "Şarküteri", "açıklama");
+        product = new Product("Laktozsuz", 15.0, 10.0, "Kahvaltılık", "Süt", "açıklama", 0.18);
         productList.add(product);
-        product = new Product("Sucuk", 5.0, "Kahvaltılık", "Şarküteri", "açıklama");
+
+        product = new Product("Kaşar", 15.0, 15.0,"Kahvaltılık", "Şarküteri", "açıklama", 0.18);
         productList.add(product);
-        product = new Product("Zeytin", 5.0, "Kahvaltılık", "Şarküteri", "açıklama");
+        product = new Product("Peynir", 34.0, 17.5,"Kahvaltılık", "Şarküteri", "açıklama", 0.18);
+        productList.add(product);
+        product = new Product("Salam", 22.0, 13.0, "Kahvaltılık", "Şarküteri", "açıklama", 0.18);
+        productList.add(product);
+        product = new Product("Sucuk", 11.0, 6.0,"Kahvaltılık", "Şarküteri", "açıklama", 0.18);
+        productList.add(product);
+        product = new Product("Zeytin", 15.0, 3.0,"Kahvaltılık", "Şarküteri", "açıklama", 0.18);
         productList.add(product);
 
     }

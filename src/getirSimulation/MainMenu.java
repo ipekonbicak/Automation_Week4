@@ -14,7 +14,7 @@ public class MainMenu {
     public MainMenu() {
         category = new Category("");
         subCategory = new SubCategory("", "");
-        product = new Product("", 0.0, "", "","");
+        product = new Product("", 0.0, 0.0,"", "","",0.0);
         basket = new Basket(0.0, "");
 
          /*Since the system is not connected to a Database, I created products that are created and
@@ -79,7 +79,7 @@ public class MainMenu {
                 basket.seeBasket(client);
                 break;
             case "P":
-                Product p = new Product("", 0.0, "", "","");;
+                Product p = new Product("", 0.0, 0.0, "", "","",0.0);;
                 System.out.println("Enter the name of the product you want to add.");
                 String productName = scanner.next();
                 for(int y = 0; y < product.productList.size(); y++){

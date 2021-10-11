@@ -26,14 +26,12 @@ public class Client extends User implements UserOperations {
         userEmail = loginInfo.next();
         System.out.print("Enter Your Password: ");
         userPassword = loginInfo.next();
-        int i = 0;
         for (Client client: this.clientList) {
             if(client.email.equals(userEmail) && client.password.equals(userPassword)){
                 System.out.println("Welcome to Getir");
                 LandingPage landingPage = new LandingPage();
                 landingPage.landingPage(client);
             }
-            i++;
         }
         loginInfo.close();
     }
@@ -115,7 +113,6 @@ public class Client extends User implements UserOperations {
         }else if(s.equals("Change Profile")){
             this.login();
         }else{
-            System.out.println("aklşdkalskdlaskd aşlkdalşs şalksdşa aşlsdklaşsdasd şalksdaşlskdlaskd");
             System.exit(0);
         }
     }

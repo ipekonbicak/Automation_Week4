@@ -40,8 +40,11 @@ public class Basket {
             Basket basket = new Basket(amount, client.userId);
             client.setBasket(basket);
             basket.productList.add(product);
-            client.basket.productList.get(0).setBasketPrice(amount);
+            //KDV Formula KDV hariç ürün fiyatı × (1+KDV oranı)
+            client.basket.productList.get(0).setAmountWithKDV( (amount * (1 + product.getKDVratio())));
+            client.basket.productList.get(0).setBasketPrice(amount * (1 + client.basket.productList.get(0).getKDVratio()));
             client.basket.productList.get(0).setAmount(number);
+
 
         //If user has a basket already add new product to that basket or update existing product price.
         }else{
@@ -51,12 +54,14 @@ public class Basket {
                 if(product.name == p.name){
                     amount = p.getBasketPrice() + amount;
                     p.setAmount(number + p.getAmount());
-                    p.setBasketPrice(amount);
+                    p.setAmountWithKDV( (amount * (1 + product.getKDVratio())) );
+                    p.setBasketPrice(p.getAmountWithKDV());
                     break;
 
                //If a second product is added to the cart, it is added in the else block below.
                 }else{
-                    p.setBasketPrice(amount);
+                    p.setAmountWithKDV( (amount * (1 + product.getKDVratio())) );
+                    p.setBasketPrice(p.getAmountWithKDV());
                     client.basket.productList.add(product);
                     break;
                 }
@@ -69,7 +74,7 @@ public class Basket {
             //The total product price is divided by the unit product price and the number of products added to the cart is found.
             if(product.name == p.name){
                 System.out.println("Product Name: " + product.name + "\nProduct Price: " +product.price+ "\nProduct discounted price " +product.getBasketPrice()+
-                        "\nTotal price for this product: " +product.basketPrice);
+                        "\nTotal price for this product: (KDV included)" +product.basketPrice);
             }
         }
         m.choose(client);
@@ -83,10 +88,10 @@ public class Basket {
             System.out.println("::::::: PRODUCTS :::::::");
             for (Product p: client.basket.productList) {
                 //The total product price is divided by the unit product price and the number of products added to the cart is found.
-                System.out.println("Product Name: " + p.name + " Product Count " + p.amount +
-                        " Total price for this product: " +p.basketPrice);
+                System.out.println("Product Name: " + p.name + " Product Count " + p.amount + " KDV: " +p.KDVratio+
+                        " Total price for this product: (KDV included)" +p.basketPrice);
             }
-            System.out.println("Total Basket Price: " + client.basket.totalPrice);
+            System.out.println("Total Basket Price: (KDV included)" + client.basket.totalPrice);
         }else{
             //If there is no basket created by the user before, a warning will appear on the screen.
             System.out.println("You don't have a Basket. Please add product to create.");

@@ -15,7 +15,7 @@ public class Category {
 
     public void createCategoryByDefault(){
         Category category;
-        for(int i = 0; i <= categoryNameArray.length; i++){
+        for(int i = 0; i < categoryNameArray.length; i++){
             category =  new Category(categoryNameArray[i]);
             this.categoryList.add(category);
         }
