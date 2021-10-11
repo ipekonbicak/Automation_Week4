@@ -64,36 +64,44 @@ public class Product {
         return KDVratio;
     }
 
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
     //creating product that are wanted.
     public void createCategoryByDefault(){
         Product product;
         //burada Id tutulması gerekiyor.
-        product = new Product("Elma", 5.0,5.8, "Meyve", "-", "açıklama", 0.18);
+        product = new Product("Elma", 5.8,4.8, "Meyve", "-", "açıklama", 0.18);
         productList.add(product);
         //this.registersProducts(product);
-        product = new Product("Armut", 8.34, 10.9, "Meyve", "-", "açıklama", 0.18);
+        product = new Product("Armut", 10.34, 8.9, "Meyve", "-", "açıklama", 0.18);
         productList.add(product);
         product = new Product("Üzüm", 40.34, 3.0,"Meyve", "-", "açıklama", 0.18);
         productList.add(product);
 
-        product = new Product("Domates", 8.0,20.5,"Sebze", "-", "açıklama", 0.1);
+        product = new Product("Domates", 28.0,8.5,"Sebze", "-", "açıklama", 0.1);
         productList.add(product);
         //this.registersProducts(product);
-        product = new Product("Biber", 2.34, 10.0, "Sebze", "-", "açıklama", 0.1);
+        product = new Product("Biber", 12.34, 2.0, "Sebze", "-", "açıklama", 0.1);
         productList.add(product);
         product = new Product("Patlıcan", 18.54,11.1, "Sebze", "-", "açıklama", 0.1);
         productList.add(product);
 
         product = new Product("Lays", 10.2, 12.5,"Atıştırmalıklar", "Cips", "açıklama",0.3);
         productList.add(product);
-        product = new Product("Doritos", 16.0,27.0, "Atıştırmalıklar", "Cips", "açıklama",0.3);
+        product = new Product("Doritos", 26.0,17.0, "Atıştırmalıklar", "Cips", "açıklama",0.3);
         productList.add(product);
-        product = new Product("Ruffles", 5.0, 20.0,"Atıştırmalıklar", "Cips", "açıklama", 0.3);
+        product = new Product("Ruffles", 25.0, 10.0,"Atıştırmalıklar", "Cips", "açıklama", 0.3);
         productList.add(product);
 
-        product = new Product("Tadelle", 10.2, 23.4, "Atıştırmalıklar", "Çikolata", "açıklama", 0.3);
+        product = new Product("Tadelle",  23.4, 10.2, "Atıştırmalıklar", "Çikolata", "açıklama", 0.3);
         productList.add(product);
-        product = new Product("Albeni", 16.0, 21.0,"Atıştırmalıklar", "Çikolata", "açıklama", 0.3);
+        product = new Product("Albeni", 21.0, 20.0,"Atıştırmalıklar", "Çikolata", "açıklama", 0.3);
         productList.add(product);
         product = new Product("Metro", 15.0, 13.0,"Atıştırmalıklar", "Çikolata", "açıklama", 0.3);
         productList.add(product);

@@ -15,7 +15,7 @@ public class MainMenu {
         category = new Category("");
         subCategory = new SubCategory("", "");
         product = new Product("", 0.0, 0.0,"", "","",0.0);
-        basket = new Basket(0.0, "");
+        basket = new Basket(0.0, 0.0,"");
 
          /*Since the system is not connected to a Database, I created products that are created and
                 kept registered within the program run time so that I can see the program is running.
@@ -51,11 +51,9 @@ public class MainMenu {
 
             /* The category name selected by the user is
             checked and the sub-categories of that category are listed.
-            If there is no sub category the products directly shown if the categories were listed.*/
+            */
             if(choosen.equals(subCategory.categoryName)){
                 System.out.println(" - " +subCategory.name);
-            }else if((choosen.equals(product.productList.get(i).categoryName) && product.productList.get(i).subCategory.equals("-"))){
-                System.out.println(" - Product Name: " +product.productList.get(i).name+ "  Price: " +product.productList.get(i).price);
             }
             i++;
         }

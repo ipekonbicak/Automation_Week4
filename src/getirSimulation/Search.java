@@ -19,7 +19,7 @@ public class Search {
         category = new Category("");
         subCategory = new SubCategory("", "");
         product = new Product("", 0.0, 0.0, "", "","",0.0);
-        basket = new Basket(0.0, "");
+        basket = new Basket(0.0, 0.0, "");
 
         //So that the products are here too.
         category.createCategoryByDefault();
